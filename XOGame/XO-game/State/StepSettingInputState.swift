@@ -1,22 +1,21 @@
 //
-//  PlayerInputState.swift
+//  StepSettingInputState.swift
 //  XO-game
 //
-//  Created by Alexandr Evtodiy on 27.12.2020.
+//  Created by Alexandr Evtodiy on 30.12.2020.
 //  Copyright © 2020 plasmon. All rights reserved.
 //
 
 import Foundation
 
-public class PlayerInputState: GameState {
+public class StepSettingInputState: GameState {
     public func addCommandToInvoker(at position: GameboardPosition) {
         
     }
     
-    public func executeInvoker() {
-        
+    public func executeInvoker () {
+        MoveInvoker.shared.stepExecutionMoveCommands()
     }
-    
     
     public let markViewPrototype: MarkView
     
@@ -49,10 +48,10 @@ public class PlayerInputState: GameState {
     
     public func addMark(at position: GameboardPosition) {
         Log(.playerInput(player: self.player, position: position))
-        
+        self.gameboardView?.removeMarkView(at: position)
         guard let gameboardView = self.gameboardView
-              , gameboardView.canPlaceMarkView(at: position)
-        else { return }
+            , gameboardView.canPlaceMarkView(at: position)
+            else { return }
         
         self.gameboard?.setPlayer(self.player, at: position)
         self.gameboardView?.placeMarkView(self.markViewPrototype.copy(), at: position)
