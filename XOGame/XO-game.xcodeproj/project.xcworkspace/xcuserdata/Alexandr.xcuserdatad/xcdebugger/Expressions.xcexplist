@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "closure #1 in GameViewController.goToNextState():GameViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.goToNextState():GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "currentState">
+            </PersistentString>
+            <PersistentString
+               value = "secondGameboardPositions">
+            </PersistentString>
+            <PersistentString
+               value = "firstGameboardPositions">
+            </PersistentString>
+            <PersistentString
+               value = "self.currentState.addMark(at: position)">
+            </PersistentString>
+            <PersistentString
+               value = "firstGameboard">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.counterBlindMove.modify:GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.counterBlindMove">
+            </PersistentString>
+            <PersistentString
+               value = "counterBlindMove">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.stepSettingMovement():GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "counterBlindMove">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in GameViewController.viewDidLoad():GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.counterBlindMove">
+            </PersistentString>
+            <PersistentString
+               value = "MoveInvoker.shared.secondPlayerCommands">
+            </PersistentString>
+            <PersistentString
+               value = "MoveInvoker.shared.firstPlayerCommands">
+            </PersistentString>
+            <PersistentString
+               value = "counterBlindMove">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

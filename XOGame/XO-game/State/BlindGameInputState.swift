@@ -1,22 +1,14 @@
 //
-//  PlayerInputState.swift
+//  BlindGameInputState.swift
 //  XO-game
 //
-//  Created by Alexandr Evtodiy on 27.12.2020.
+//  Created by Alexandr Evtodiy on 29.12.2020.
 //  Copyright © 2020 plasmon. All rights reserved.
 //
 
 import Foundation
 
-public class PlayerInputState: GameState {
-    public func addCommandToInvoker(at position: GameboardPosition) {
-        
-    }
-    
-    public func executeInvoker() {
-        
-    }
-    
+public class BlindGameInputState: GameState {
     
     public let markViewPrototype: MarkView
     
@@ -46,13 +38,25 @@ public class PlayerInputState: GameState {
         }
         self.gameViewController?.winnerLabel.isHidden = true
     }
+       
+    public func addCommandToInvoker (at position: GameboardPosition) {
+        guard let gameboardView = self.gameboardView,
+              let gameboard = self.gameboard
+            , gameboardView.canPlaceMarkView(at: position)
+            else { return }
+        let moveCommand = MoveCommand(player: player, gameboardPosition: position, gameboard: gameboard, gameboardView: gameboardView, markViewPrototype: markViewPrototype)
+        MoveInvoker.shared.addMoveCommand(moveCommand)
+    }
+    
+    public func executeInvoker () {
+       
+    }
     
     public func addMark(at position: GameboardPosition) {
         Log(.playerInput(player: self.player, position: position))
-        
         guard let gameboardView = self.gameboardView
-              , gameboardView.canPlaceMarkView(at: position)
-        else { return }
+            , gameboardView.canPlaceMarkView(at: position)
+            else { return }
         
         self.gameboard?.setPlayer(self.player, at: position)
         self.gameboardView?.placeMarkView(self.markViewPrototype.copy(), at: position)

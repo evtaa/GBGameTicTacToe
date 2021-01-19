@@ -13,8 +13,36 @@ public final class Gameboard {
     // MARK: - Properties
     
     private lazy var positions: [[Player?]] = initialPositions()
+    //var leavePositions: [GameboardPosition] = []
     
     // MARK: - public
+    
+    public func getUsedGameBoardPositions () -> [GameboardPosition] {
+        var gameBoardPositions:[GameboardPosition] = []
+        for column in 0 ..< GameboardSize.columns {
+            for row in 0..<GameboardSize.rows {
+                if let position = positions [column] [row]
+                {
+                    let gameboardPosition = GameboardPosition (column: column, row: row)
+                    gameBoardPositions.append(gameboardPosition)
+                }
+            }
+        }
+        return gameBoardPositions
+    }
+    
+    public func getLeaveGameBoardPositions () -> [GameboardPosition]  {
+        var gameboardPositions: [GameboardPosition] = []
+        for column in 0 ..< GameboardSize.columns {
+            for row in 0 ..< GameboardSize.rows {
+                if positions[column][row] == nil {
+                    let gameboardPosition = GameboardPosition (column: column, row: row)
+                    gameboardPositions.append(gameboardPosition)
+                }
+            }
+        }
+        return gameboardPositions
+    }
     
     public func setPlayer(_ player: Player, at position: GameboardPosition) {
         positions[position.column][position.row] = player

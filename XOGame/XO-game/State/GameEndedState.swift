@@ -9,13 +9,20 @@
 import Foundation
 
 public class GameEndedState: GameState {
+    public func addCommandToInvoker(at position: GameboardPosition) {
+        
+    }
+    
+    public func executeInvoker() {
+        
+    }
+    
     
     public let isCompleted = false
     
     public let winner: Player?
     private(set) weak var gameViewController: GameViewController?
     
-    //public init(winner: Player?, gameViewController: GameViewController) {
     init(winner: Player?, gameViewController: GameViewController) {
         self.winner = winner
         self.gameViewController = gameViewController

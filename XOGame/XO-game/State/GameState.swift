@@ -15,4 +15,8 @@ public protocol GameState {
     func begin()
     
     func addMark(at position: GameboardPosition)
+    
+    func addCommandToInvoker (at position: GameboardPosition)
+    
+    func executeInvoker ()
 }
